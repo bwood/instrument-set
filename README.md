@@ -23,7 +23,7 @@ To install this plugin using Terminus 4:
 1. Download the code to ~/.terminus/plugins
 2. Run terminus install command:
 ```
-terminus self:plugin:install terminus-plugin-example
+terminus self:plugin:install $HOME/.terminus/plugins/instrument-set
 ```
 
 ## Help
