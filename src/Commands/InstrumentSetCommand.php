@@ -26,7 +26,7 @@ use Pantheon\Terminus\Site\SiteAwareTrait;
  *
  * When you rename this class, make sure the new name ends with "Command" so that Terminus can find it.
  */
-class InstrumentSetCommand extends TerminusCommand {
+class InstrumentSetCommand extends TerminusCommand implements SiteAwareInterface {
 
   use SiteAwareTrait;
   use WorkflowProcessingTrait;
@@ -45,7 +45,9 @@ class InstrumentSetCommand extends TerminusCommand {
    * @usage <site> <payment_method> Associates <payment_method> with <site>.
    */
   public function add($site_name, $payment_method) {
-    $site = $this->getSite($site_name);
+
+    // $this->getSite doesn't work for some reason...
+    list($site, ) = $this->getSiteEnv($site_name . '.dev');
 
     preg_match(
       '/[a-f0-9]{8}\-[a-f0-9]{4}\-4[a-f0-9]{3}\-(8|9|a|b)[a-f0-9]{3}\-[a-f0-9]{12}/',
