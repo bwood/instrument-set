@@ -20,11 +20,12 @@ These commands require no configuration
 
 To install this plugin using Terminus 4:
 
-1. Download the code to ~/.terminus/plugins
+1. Download the code to ~/.terminus/plugins-3.x
 2. Run terminus install command:
 ```
-terminus self:plugin:install $HOME/.terminus/plugins/instrument-set
+terminus self:plugin:install ~/.terminus/plugins-3.x/instrument-set
 ```
+3. `terminus self:plugins:reload`
 
 ## Help
 Run `terminus help instrument:set` for help.
