@@ -1,38 +1,32 @@
 <?php
 /**
- * This simple command shows the basics of how to add a new top-level command to Terminus.
- *
- * To add a command simply define a class as a subclass of `Pantheon\Terminus\Commands\TerminusCommand` and place it in
- * a php file inside the 'Commands' directory inside your plugin directory. The file and command class should end with
- * 'Command' in order to be found by Terminus.
- *
- * To specify what the command name should be use the `@command` tag in the actual command function DocBlock.
- *
- * This command can be invoked by running `terminus hello`
- */
-
-/**
  * Plugins which are to be distributed should define their own namespace in order to avoid conflicts. To do so, use
  * the PSR-4 standard and add an autoload section to your composer.json.
  *
- * Development or internal-only plugins can ommit the namespace declaration and the autoload section in composer.json.
+ * Development or internal-only plugins can omit the namespace declaration and the autoload section in composer.json.
  * The command will then use the global namespace.
  */
 
-namespace Pantheon\TerminusInstrumentSet\Commands;
+namespace Pantheon\TerminusInstrumentSet;
+
 
 /**
  * It is not strictly necessary to extend the TerminusCommand class but doing so causes a number of helpful
  * objects (logger, session, etc) to be automatically provided to your class by the dependency injection container.
  */
 use Pantheon\Terminus\Commands\TerminusCommand;
+use Pantheon\Terminus\Commands\WorkflowProcessingTrait;
+use Pantheon\Terminus\Exceptions\TerminusException;
+use Pantheon\Terminus\Site\SiteAwareInterface;
+use Pantheon\Terminus\Site\SiteAwareTrait;
+
 
 /**
  * Say hello to the user
  *
  * When you rename this class, make sure the new name ends with "Command" so that Terminus can find it.
  */
-class InstrumentSet extends TerminusCommand {
+class InstrumentSetCommand extends TerminusCommand {
   /**
    *
    *  Associates an existing payment method with a site.
