@@ -7,7 +7,7 @@
  * The command will then use the global namespace.
  */
 
-namespace Pantheon\TerminusInstrumentSet;
+namespace Pantheon\TerminusInstrumentSet\Commands;
 
 
 /**
@@ -27,6 +27,10 @@ use Pantheon\Terminus\Site\SiteAwareTrait;
  * When you rename this class, make sure the new name ends with "Command" so that Terminus can find it.
  */
 class InstrumentSetCommand extends TerminusCommand {
+
+  use SiteAwareTrait;
+  use WorkflowProcessingTrait;
+
   /**
    *
    *  Associates an existing payment method with a site.
