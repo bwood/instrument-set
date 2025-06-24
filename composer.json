@@ -30,10 +30,7 @@
     },
     "extra": {
         "terminus": {
-            "compatible-version": "^4",
-            "plugins": {
-                "instrument-set": "Pantheon\\TerminusInstrumentSet\\InstrumentSetCommand"
-            }
+            "compatible-version": "^4"
         }
     }
 }
